@@ -1,9 +1,9 @@
 function chanlocs = channel_clusters(chanlocs, DataType)
 
-switch DataType
-    case 'MFF'
+switch lower(DataType)
+    case 'mff'
         clusters = readtable('egi256_clusters.csv');
-    case 'COMPU257'
+    case 'compu257'
         clusters = readtable('neuvo256_clusters.csv');
     otherwise
         for i = 1:length(chanlocs)

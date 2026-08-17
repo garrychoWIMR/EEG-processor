@@ -51,12 +51,13 @@ pns(i).labels = 'BP 15'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Right Foot';
 pns(i).labels = 'BP 16'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Left Foot'; i = i+1;
 pns(i).labels = 'SpO2'; pns(i).type = 'MISC'; pns(i).relabel = 'SpO2-OSat'; i = i+1;
 pns(i).labels = 'Resp. Temp_old'; pns(i).type = 'MISC'; pns(i).relabel = 'do_not_use1'; i = i+1;
-pns(i).labels = 'ECG_old'; pns(i).type = 'MISC'; pns(i).relabel = 'do_not_use2'; i = i+1;
+pns(i).labels = 'ECG_old'; pns(i).type = 'ECG'; pns(i).relabel = 'ECG'; i = i+1;
 % -----
 % Grael Workspace
 pns(i).labels = 'Pulse'; pns(i).type = 'MISC'; pns(i).relabel = 'SpO2-Pulse'; i = i+1;
 pns(i).labels = 'E1-M2'; pns(i).type = 'EOG'; pns(i).relabel = 'LEOG'; i = i+1;
 pns(i).labels = 'E2-M1'; pns(i).type = 'EOG'; pns(i).relabel = 'REOG'; i = i+1;
+pns(i).labels = 'E2-E1'; pns(i).type = 'EOG'; pns(i).relabel = 'HEOG'; i = i+1;
 pns(i).labels = 'E1'; pns(i).type = 'EOG'; pns(i).relabel = 'LEOG'; i = i+1;
 pns(i).labels = 'E2'; pns(i).type = 'EOG'; pns(i).relabel = 'REOG'; i = i+1;
 pns(i).labels = 'Chin 1-Chin 2'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Chin'; i = i+1;
@@ -67,11 +68,20 @@ pns(i).labels = 'Chin 3'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Chin3'; i =
 pns(i).labels = 'Nasal Pressure'; pns(i).type = 'NasalPressure'; pns(i).relabel = 'Resp. Flow'; i = i+1;
 pns(i).labels = 'NasalPressure'; pns(i).type = 'NasalPressure'; pns(i).relabel = 'Resp. Flow'; i = i+1;
 pns(i).labels = 'Therm'; pns(i).type = 'Respiratory'; pns(i).relabel = 'Resp. Temp'; i = i+1;
+pns(i).labels = 'Thermistor'; pns(i).type = 'Respiratory'; pns(i).relabel = 'Resp. Temp'; i = i+1;
 pns(i).labels = 'Abdo'; pns(i).type = 'Respiratory'; pns(i).relabel = 'Abdo. Effort'; i = i+1;
 pns(i).labels = 'Thor'; pns(i).type = 'Respiratory'; pns(i).relabel = 'Thor. Effort'; i = i+1;
+pns(i).labels = 'Sum Effort'; pns(i).type = 'Respiratory'; pns(i).relabel = 'Sum Effort'; i = i+1;
 pns(i).labels = 'Leg/L'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Left Leg'; i = i+1;
 pns(i).labels = 'Leg/R'; pns(i).type = 'EMG'; pns(i).relabel = 'EMG Right Leg'; i = i+1;
+pns(i).labels = 'ManPosition'; pns(i).type = 'MISC'; pns(i).relabel = 'Body Position'; i = i+1;
 pns(i).labels = 'PositionSen'; pns(i).type = 'MISC'; pns(i).relabel = 'Body Position'; i = i+1;
+pns(i).labels = 'SpO2'; pns(i).type = 'MISC'; pns(i).relabel = 'SpO2-OSat'; i = i+1;
+pns(i).labels = 'Pulse'; pns(i).type = 'MISC'; pns(i).relabel = 'SpO2-Pulse'; i = i+1;
 pns(i).labels = 'Ox Status'; pns(i).type = 'MISC'; pns(i).relabel = 'SpO2-Status'; i = i+1;
+pns(i).labels = 'Pleth'; pns(i).type = 'MISC'; pns(i).relabel = 'Pleth'; i = i+1;
+pns(i).labels = 'ReBAP'; pns(i).type = 'MISC'; pns(i).relabel = 'ReBAP'; i = i+1;
+pns(i).labels = 'FiAP'; pns(i).type = 'MISC'; pns(i).relabel = 'FiAP'; i = i+1;
+pns(i).labels = 'ManLights'; pns(i).type = 'MISC'; pns(i).relabel = 'Lights'; i = i+1;
 
 end

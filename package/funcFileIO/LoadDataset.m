@@ -30,6 +30,8 @@ switch Extension
     case '.mat'
         % ---------------------------------------------------------
         % Load MAT file
+        disp('>> BIDS: Reading data from Matlab file')
+        fprintf('>> BIDS: %s\n', FullFilePath)
         tmp = load(FullFilePath);
         if ~isfield(tmp, 'EEG')
             EEG = struct();

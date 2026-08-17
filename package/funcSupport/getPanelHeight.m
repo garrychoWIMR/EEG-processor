@@ -1,5 +1,5 @@
 function h = getPanelHeight(N)
 
-h = 25 + 30*N;
+h = 28 + 30*N;
 
 end

@@ -19,7 +19,7 @@ if Settings.DoSpectrogram
             Warnings = [Warnings; {'-----'}];
             return
         end
-        % Try to find all the good 10-20 channels
+        % Try to find all the good channels
         IncludeChanIdx = find(ismember({EEG.chanlocs.labels}, IncludeChans));
         % If not all are found, trow a warning
         if length(IncludeChanIdx) ~= length(IncludeChans)
@@ -39,7 +39,11 @@ if Settings.DoSpectrogram
         cfg.pad = 'nextpow2';
         cfg.taper = 'hanning';
         cfg.width = Settings.SpectrogramSettings.Cycles;
-        cfg.foi = 1/range([EEG.xmin, EEG.xmax+1/EEG.srate])+Settings.SpectrogramSettings.FreqStep:Settings.SpectrogramSettings.FreqStep:Settings.SpectrogramSettings.MaxFreq;
+        if isfield(Settings.SpectrogramSettings, 'MinFreq')
+            cfg.foi = Settings.SpectrogramSettings.MinFreq:Settings.SpectrogramSettings.FreqStep:Settings.SpectrogramSettings.MaxFreq;
+        else
+            cfg.foi = Settings.SpectrogramSettings.FreqStep:Settings.SpectrogramSettings.FreqStep:Settings.SpectrogramSettings.MaxFreq;
+        end
         cfg.toi = FT_EEG.time{1, 1}(1):Settings.SpectrogramSettings.TimeStep:FT_EEG.time{1, 1}(end);
         cfg.wavelen = 1./cfg.foi;
         cfg.t_ftimwin = min([ones(1, length(cfg.foi))*Settings.SpectrogramSettings.Cycles; range([EEG.xmin, EEG.xmax+1/EEG.srate])./cfg.wavelen])./cfg.foi;
@@ -59,6 +63,7 @@ if Settings.DoSpectrogram
         EEG.specchans = TFA.label;
         EEG.specfreqs = cfg.foi;
         EEG.spectimes = EEG.xmin:Settings.SpectrogramSettings.TimeStep:EEG.xmax;
+        EEG.specsrate = 1./Settings.SpectrogramSettings.TimeStep;
         if Settings.SpectrogramSettings.DoBaselineNorm
             BaselineIdx = EEG.spectimes >= Settings.SpectrogramSettings.BaselineInterval(1) & EEG.spectimes <= Settings.SpectrogramSettings.BaselineInterval(2);
             EEG.specnormmethod = Settings.SpectrogramSettings.BaselineMethod;

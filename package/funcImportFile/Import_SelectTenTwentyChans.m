@@ -7,7 +7,7 @@ switch DataType
         Chans = {'Cz', 'E1', 'E18', 'E21', 'E36', 'E59', 'E87', 'E94', 'E101', 'E116', 'E126', 'E150', 'E153', 'E183', 'E190', 'E224', 'E238', 'E252'};
     case 'COMPU257'
         Chans = {'Fp1', 'Fpz', 'Fp2', 'F3', 'Fz', 'F4', 'C3', 'Cz', 'C4', 'P3', 'Pz', 'P4', 'O1', 'Oz', 'O2', 'M1', 'M2', 'REF'};
-    case 'TENTWENTY'
+    case {'TENTWENTY'}
         return % Is already a Ten Twenty recording
     otherwise
         error('Cannot select 10-20 channels for this data type ''%s''', DataType)

@@ -33,6 +33,7 @@ if SplitSettings.Do
                 end
             end
         end
+        RejEpochs = unique(RejEpochs);
         RejEpochs(RejEpochs > EEG.trials) = [];
         % If not any reject event is found, trow a warning
         if isempty(RejEpochs)

@@ -1,4 +1,4 @@
-function [EEG, MFF] = Import_EmptySet(FileType, FullFilePath)
+function [EEG, MFF] = Import_EmptySet(FileType, FullFilePath, varargin)
 T = now;
 switch lower(FileType)
     case 'mff'
@@ -6,12 +6,18 @@ switch lower(FileType)
         MFF = mff_import_meta_data(FullFilePath);
         EEG = mff_newset(MFF);
     case 'compu257'
-        EEG = compumedics_import_data(FullFilePath);
+        EEG = compumedics_import_data(FullFilePath, varargin{:});
         MFF = [];
         [EEG.filepath, EEG.setname] = fileparts(FullFilePath);
         EEG.filename = [EEG.setname, '.set'];
     case 'tentwenty'
         EEG = tentwenty_import_data(FullFilePath);
+        MFF = [];
+        [EEG.filepath, EEG.setname] = fileparts(FullFilePath);
+        EEG.filename = [EEG.setname, '.set'];
+    % ID: remlogic import GC 13/11/2025
+    case 'remlogic'
+        EEG = grael_import_data(FullFilePath);
         MFF = [];
         [EEG.filepath, EEG.setname] = fileparts(FullFilePath);
         EEG.filename = [EEG.setname, '.set'];
