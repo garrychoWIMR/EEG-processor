@@ -10,7 +10,7 @@ if ~isempty(EEG.chanlocs)
         urpibdata = EEG.data(~idx, :);
     end
     switch DataType
-        case 'GRAEL'
+        case {'GRAEL','REMLOGIC'}
             EEG.chanlocs = EEG.chanlocs(idx);
         otherwise
             EEG.chanlocs(:) = [];

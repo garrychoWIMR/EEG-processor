@@ -123,7 +123,7 @@ switch Import.SourceFileType
         EEG = pop_reref(EEG, strcmpi({EEG.chanlocs.labels}, RefChan), 'keepref', 'on');
         EEG = pop_chanedit(EEG, 'setref', {'1:257', RefChan});
         EEG.ref = 'common';
-    case {'TENTWENTY','remlogic'} % ID: remlogic import GC 13/11/2025
+    case {'TENTWENTY','REMLOGIC'} % ID: remlogic import GC 13/11/2025
         % DEPRICATED ID #0013
         for i = 1:EEG.nbchan
             if strcmpi(EEG.chanlocs(i).type, 'PNS')
@@ -202,7 +202,7 @@ if Import.Events.Do
         
         % ID: remlogic import GC 13/11/2025
         switch Import.SourceFileType
-            case 'remlogic'
+            case 'REMLOGIC'
                 [EEG, warnmsg] = remlogic_import_sleep_scores(EEG, Import.Events.HypnoPath);
             otherwise
                 [EEG, warnmsg] = compumed_import_sleep_scores(EEG, Import.Events.HypnoPath);
@@ -218,7 +218,7 @@ if Import.Events.Do
                 [EEG, warnmsg] = compumed_import_sleep_events(EEG, Import.Events.EventsPath, Import.SourceFilePath);
             
             %  ID: remlogic import GC 13/11/2025
-            case 'remlogic'
+            case 'REMLOGIC'
                 [EEG, warnmsg] = remlogic_import_sleep_events(EEG, Import.Events.EventsPath, Import.SourceFilePath);
 
             otherwise
